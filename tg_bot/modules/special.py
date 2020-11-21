@@ -21,7 +21,7 @@ def quickscope(bot: Bot, update: Update, args: List[int]):
         chat_id = str(args[1])
         to_kick = str(args[0])
     else:
-        update.effective_message.reply_text("You don't seem to be referring to a chat/user")
+        update.effective_message.reply_text("Görünüşe Göre Bir Sohbetten/Kullanıcıdan Bahsetmiyorsunuz")
     try:
         bot.kick_chat_member(chat_id, to_kick)
         update.effective_message.reply_text("Attempted banning " + to_kick + " from" + chat_id)
@@ -35,7 +35,7 @@ def quickunban(bot: Bot, update: Update, args: List[int]):
         chat_id = str(args[1])
         to_kick = str(args[0])
     else:
-        update.effective_message.reply_text("You don't seem to be referring to a chat/user")
+        update.effective_message.reply_text("Görünüşe Göre Bir Sohbetten/Kullanıcıdan Bahsetmiyorsunuz")
     try:
         bot.unban_chat_member(chat_id, to_kick)
         update.effective_message.reply_text("Attempted unbanning " + to_kick + " from" + chat_id)
@@ -102,30 +102,30 @@ def leavechat(bot: Bot, update: Update, args: List[int]):
         update.effective_message.reply_text("You don't seem to be referring to a chat")
 
 __help__ = """
-**Owner only:**
-- /getlink **chatid**: Get the invite link for a specific chat.
-- /banall: Ban all members from a chat
-- /leavechat **chatid** : leave a chat
-**Sudo/owner only:**
-- /quickscope **userid** **chatid**: Ban user from chat.
-- /quickunban **userid** **chatid**: Unban user from chat.
-- /snipe **chatid** **string**: Make me send a message to a specific chat.
-- /rban **userid** **chatid** remotely ban a user from a chat
-- /runban **userid** **chatid** remotely unban a user from a chat
-- /Stats: check bot's stats
-- /chatlist: get chatlist
-- /gbanlist: get gbanned users list
-- /gmutelist: get gmuted users list
+**Sadece Yetkili:**
+- /getlink **Grup Kimliği**: Belirli Bir Sohbet İçin Davet Bağlantısını Alın.
+- /banall: Sohbetteki Herkesi Banlar
+- /leavechat **Grup Kimliği** : Gruptan Ayrıl
+**Sadece Bot Sahibi:**
+- /quickscope **userid** **chatid**: Kullanıcıyı Banlar
+- /quickunban **userid** **chatid**: Kullanıcı Banı Açar
+- /snipe **chatid** **string**: Belirli Bir Sohbete Mesaj Göndermemi Sağlar.
+- /rban **userid** **chatid** Bir Kullanıcıyı Sohbetten Uzaktan Yasaklamak.
+- /runban **userid** **chatid** Bir Kullanıcının Sohbetten Uzakta Yasaklamasını Kaldırır
+- /Stats: Bot Bilgileri
+- /chatlist: Sohbet Listesini Alın
+- /gbanlist: Globan Ban Yemiş Kullanıcıları Alın
+- /gmutelist: Global Mute Yemiş Kullanıcıları alın
 - Chat bans via /restrict chat_id and /unrestrict chat_id commands
 **Support user:**
-- /Gban : Global ban a user
-- /Ungban : Ungban a user
-- /Gmute : Gmute a user
-- /Ungmute : Ungmute a user
+- /Gban : Kullanıcıya Global Ban Atar
+- /Ungban : Kullanıcının Global Banını Açar
+- /Gmute : Kullanıcının Global Mute Atar
+- /Ungmute : Kullanıcının Global Mutesini Açar
 Sudo/owner can use these commands too.
 **Users:**
-- /listsudo Gives a list of sudo users
-- /listsupport gives a list of support users
+- /listsudo Sudo Listesini Al
+- /listsupport Support Listesini Al
 """
 __mod_name__ = "Special"
 
