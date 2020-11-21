@@ -292,9 +292,9 @@ __help__ = """
  - /locktypes: a list of possible locktypes
 
 *Admin only:*
- - /lock <type>: lock items of a certain type (not available in private)
- - /unlock <type>: unlock items of a certain type (not available in private)
- - /locks: the current list of locks in this chat.
+ - /lock <type>: Grupta yazılan Türü Kilitler
+ - /unlock <type>: Grupta yazılan türün kilidini kaldırır
+ - /locks: Mevcut kilit listesini gösterir
 
 Locks can be used to restrict a group's users.
 eg:
