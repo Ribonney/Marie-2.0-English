@@ -284,9 +284,9 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
- - /get <notename>: get the note with this notename
- - #<notename>: same as /get
- - /notes or /saved: list all saved notes in this chat
+ - /get <notename>: Not İsmi İle Kayıtlı Notu Alır
+ - #<notename>: /get ile kullan
+ - /notes or /saved: Sohbetteki tüm notları gösterir
 
 If you would like to retrieve the contents of a note without any formatting, use `/get <notename> noformat`. This can \
 be useful when updating a current note.
