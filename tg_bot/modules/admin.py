@@ -33,11 +33,11 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'administrator' or user_member.status == 'creator':
-        message.reply_text("How am I meant to promote someone that's already an admin?")
+        message.reply_text("Zaten Yönetici Olan Birini Nasıl Terfi Ettireceğim??")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        message.reply_text("Kendimi Terfi Ettiremiyorum! Bunu Benim İçin Yapması İçin Bir Yönetici Bulun.")
         return ""
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -53,11 +53,11 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
                           can_pin_messages=bot_member.can_pin_messages,
                           can_promote_members=bot_member.can_promote_members)
 
-    message.reply_text("promoted🧡")
+    message.reply_text("Yetkilendirildi🧡")
     return "<b>{}:</b>" \
-           "\n#PROMOTED" \
+           "\n#Yetkilendirildi" \
            "\n<b>Admin:</b> {}" \
-           "\n<b>User:</b> {}".format(html.escape(chat.title),
+           "\n<b>Kullanıcı:</b> {}".format(html.escape(chat.title),
                                       mention_html(user.id, user.first_name),
                                       mention_html(user_member.user.id, user_member.user.first_name))
 
@@ -79,15 +79,15 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'creator':
-        message.reply_text("i cant ban creator of the group.... 😬")
+        message.reply_text("Grubu Oluşturan Kişiyi Yasaklayamam... 😬")
         return ""
 
     if not user_member.status == 'administrator':
-        message.reply_text("Can't demote what wasn't promoted!")
+        message.reply_text("Terfi Edilmeyenlerin Derecesini Düşüremezsin!")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I can't demote myself! Get an admin to do it for me.")
+        message.reply_text("Kendi Yetkimi Düşüremem.")
         return ""
 
     try:
@@ -100,17 +100,17 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
                               can_restrict_members=False,
                               can_pin_messages=False,
                               can_promote_members=False)
-        message.reply_text("Successfully demoted!")
+        message.reply_text("Başarıyla Yetki Düşürüldü!")
         return "<b>{}:</b>" \
-               "\n#DEMOTED" \
+               "\n#Düşürüldü" \
                "\n<b>Admin:</b> {}" \
-               "\n<b>User:</b> {}".format(html.escape(chat.title),
+               "\n<b>Kullanıcı:</b> {}".format(html.escape(chat.title),
                                           mention_html(user.id, user.first_name),
                                           mention_html(user_member.user.id, user_member.user.first_name))
 
     except BadRequest:
-        message.reply_text("Could not demote. I might not be admin, or the admin status was appointed by another "
-                           "user, so I can't act upon them!")
+        message.reply_text("Rütbe Düşürülemedi! Yetkim Olmayabilir"
+                           "Bu Yüzden Birşey Yapamam!")
         return ""
 
 
@@ -140,7 +140,7 @@ def pin(bot: Bot, update: Update, args: List[str]) -> str:
             else:
                 raise
         return "<b>{}:</b>" \
-               "\n#PINNED" \
+               "\n#Sabitlendi" \
                "\n<b>Admin:</b> {}".format(html.escape(chat.title), mention_html(user.id, user.first_name))
 
     return ""
@@ -164,7 +164,7 @@ def unpin(bot: Bot, update: Update) -> str:
             raise
 
     return "<b>{}:</b>" \
-           "\n#UNPINNED" \
+           "\n#SabitSilindi" \
            "\n<b>Admin:</b> {}".format(html.escape(chat.title),
                                        mention_html(user.id, user.first_name))
 
@@ -182,9 +182,9 @@ def invite(bot: Bot, update: Update):
             invitelink = bot.exportChatInviteLink(chat.id)
             update.effective_message.reply_text(invitelink)
         else:
-            update.effective_message.reply_text("I don't have access to the invite link, try changing my permissions!")
+            update.effective_message.reply_text("Davet Bağlantısına Erişimim Yok, İzinlerimi Değiştirmeyi Deneyin!")
     else:
-        update.effective_message.reply_text("I can only give you invite links for supergroups and channels, sorry!")
+        update.effective_message.reply_text("Size Sadece Süper Gruplar Ve Kanallar İçin Davet Bağlantıları Verebilirim, Üzgünüm!")
 
 
 @run_async
@@ -217,14 +217,14 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
- - /adminlist: list of admins in the chat
+ - /adminlist: Yetkili Listesini Gösterir
 
-*Admin only:*
- - /pin: silently pins the message replied to - add 'loud' or 'notify' to give notifs to users.
- - /unpin: unpins the currently pinned message
- - /invitelink: gets invitelink
- - /promote: promotes the user replied to
- - /demote: demotes the user replied to
+*Sadece Yetkili:*
+ - /pin: Yanıtlanan Mesajı Yüksek Sesle Veya Sessiz Olarak Sabitler.
+ - /unpin: Sabitlenen Mesajı Kaldırır. 
+ - /invitelink: Davet Linkini Al
+ - /promote: Yanıtlanan Kişiye Yetki Verir. 
+ - /demote: Yanıtlanan Kişiden Yetkiyi Alır. 
 """
 
 __mod_name__ = "Admin"
