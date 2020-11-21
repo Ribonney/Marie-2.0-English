@@ -45,7 +45,7 @@ if is_module_loaded(FILENAME):
             bot.send_message(log_chat_id, result, parse_mode=ParseMode.HTML)
         except BadRequest as excp:
             if excp.message == "Chat not found":
-                bot.send_message(orig_chat_id, "This log channel has been deleted - unsetting.")
+                bot.send_message(orig_chat_id, "Bu günlük kanalı silindi - ayarlanmıyor.")
                 sql.stop_chat_logging(orig_chat_id)
             else:
                 LOGGER.warning(excp.message)
@@ -144,14 +144,14 @@ if is_module_loaded(FILENAME):
 
     __help__ = """
 *Admin only:*
-- /logchannel: get log channel info
-- /setlog: set the log channel.
-- /unsetlog: unset the log channel.
+- /logchannel: Log Kanalı Bilgileri
+- /setlog: yeni log kanalı ayarlayın
+- /unsetlog: log bağlantısını kesin
 
-Setting the log channel is done by:
-- adding the bot to the desired channel (as an admin!)
-- sending /setlog in the channel
-- forwarding the /setlog to the group
+Günlük kanalının ayarlanması şu şekilde yapılır::
+- botu istenen kanala ekleyin (yönetici olarak!)
+- kanala /setlog yazın
+- /setlog'u gruba ilet
 """
 
     __mod_name__ = "Log Channels"
