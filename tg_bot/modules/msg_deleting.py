@@ -83,9 +83,9 @@ def del_message(bot: Bot, update: Update) -> str:
 
 __help__ = """
 *Admin only:*
- - /del: deletes the message you replied to
- - /purge: deletes all messages between this and the replied to message.
- - /purge <integer X>: deletes the replied message, and X messages following it.
+ - /del: yanıtlanılan mesajı siler
+ - /purge: yanıtlanılan mesaj ile son mesaja kadar olan mesajları siler
+ - /purge <integer X>: yanıtlanılan mesajdan sonra x adet mesaj siler.
 """
 
 __mod_name__ = "Purges"
