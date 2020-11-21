@@ -19,14 +19,15 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
 Merhaba {}, Ben {}
-Bu Bot Grup Yönetimleri İçin [Burak](tg://user?id={}) Tarafından Tasarlandı! 
+Grup Yönetimleri İçin [Burak](tg://user?id={}) Tarafından Tasarlandım! 
+Yardım Almak İçin /help Yazınız! 
 """
 
 HELP_STRINGS = """
 
 Merhaba Ben *{}*.
 
-*Main* available commands:
+Kullanılabilir *Ana* Komutlar:
  - /start: Botu Başlatır...
  - /help: Yardım Eder....
  - /settings:
@@ -34,7 +35,7 @@ Merhaba Ben *{}*.
    - Grupta:
 
 {}
-And the following:
+Ve Bu Adımları Takip Edin:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAşağıdaki Komutların Hepsi / ya da ! İşaretleri İle kullanılabilir!\n")
 
 
