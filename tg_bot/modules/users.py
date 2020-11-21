@@ -42,7 +42,7 @@ def get_user_id(username):
                 if excp.message == 'Chat not found':
                     pass
                 else:
-                    LOGGER.exception("Error extracting user ID")
+                    LOGGER.exception("Kullanıcı Kimliği Çıkarılırken Hata Oluştu")
 
     return None
 
