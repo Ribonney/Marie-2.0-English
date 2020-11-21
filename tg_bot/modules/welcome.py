@@ -445,29 +445,27 @@ def clean_welcome(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
 
-WELC_HELP_TXT = "Your group's welcome/goodbye messages can be personalised in multiple ways. If you want the messages" \
-                " to be individually generated, like the default welcome message is, you can use *these* variables:\n" \
-                " - `{{first}}`: this represents the user's *first* name\n" \
-                " - `{{last}}`: this represents the user's *last* name. Defaults to *first name* if user has no " \
-                "last name.\n" \
-                " - `{{fullname}}`: this represents the user's *full* name. Defaults to *first name* if user has no " \
-                "last name.\n" \
-                " - `{{username}}`: this represents the user's *username*. Defaults to a *mention* of the user's " \
-                "first name if has no username.\n" \
-                " - `{{mention}}`: this simply *mentions* a user - tagging them with their first name.\n" \
-                " - `{{id}}`: this represents the user's *id*\n" \
-                " - `{{count}}`: this represents the user's *member number*.\n" \
-                " - `{{chatname}}`: this represents the *current chat name*.\n" \
-                "\nEach variable MUST be surrounded by `{{}}` to be replaced.\n" \
-                "Welcome messages also support markdown, so you can make any elements bold/italic/code/links. " \
-                "Buttons are also supported, so you can make your welcomes look awesome with some nice intro " \
-                "buttons.\n" \
-                "To create a button linking to your rules, use this: `[Rules](buttonurl://t.me/{}?start=group_id)`. " \
-                "Simply replace `group_id` with your group's id, which can be obtained via /id, and you're good to " \
-                "go. Note that group ids are usually preceded by a `-` sign; this is required, so please don't " \
-                "remove it.\n" \
-                "If you're feeling fun, you can even set images/gifs/videos/voice messages as the welcome message by " \
-                "replying to the desired media, and calling /setwelcome.".format(dispatcher.bot.username)
+WELC_HELP_TXT = "Grubunuzun Hoş Geldin/Veda Mesajları Birçok Şekilde Kişiselleştirilebilir. Eğer Mesajları İstiyorsan" \
+                " Tek Tek Oluşturulmak İçin, Varsayılan Karşılama Mesajı Gibi, *bu* Değişkenleri Kullanabilirsiniz:\n" \
+                " - `{{first}}`: Bu, Kullanıcının *Adını* Temsil Eder\n" \
+                " - `{{last}}`: Bu, Kullanıcının *Soyadını* Temsil Eder. Kullanıcının Soyadı Yoksa Varsayılan Olarak *Ad*" \
+                "Kullanılır \n" \
+                " - `{{fullname}}`: Bu, Kullanıcının *Tam* Adını Temsil Eder. Kullanıcının Soyadı Yoksa Varsayılan Olarak *İlk Adı* " \
+                "Kullanılır\n" \
+                " - `{{username}}`: Bu, Kullanıcının *Kullanıcı Adını* Temsil Eder. Kullanıcı Adı Yoksa, Kullanıcının İlk Adının *Etiketlenmesine* Yardımcı Olur.\n" \
+                " - `{{mention}}`: Bu Sadece Bir Kullanıcıdan *Bahseder* -Onları Adlarıyla Etiketler.\n" \
+                " - `{{id}}`: Bu Kullanıcının *ID'sini* Temsil Eder\n" \
+                " - `{{count}}`: Bu Grubun *Üye Sayısını* Temsil Eder.\n" \
+                " - `{{chatname}}`: Bu Grubun *İsmini* Temsil Eder.\n" \
+                "\nHer Değişkenin Değiştirilmesi İçin `{{}}` İle Çevrelenmiş OLMALIDIR.\n" \
+                "Karşılama Mesajları Ayrıca İşaretlemeyi Destekler, Böylece Herhangi Bir Öğeyi Kalın/İtalik/Kod/Bağlantı Yapabilirsiniz. " \
+                "Butonlar Da Desteklenir, Böylece Hoş Geldiniz Konuşmalarınızın Harika Görünmesini Güzel Bir Girişle Yapabilirsiniz. " \
+                "*Butonlar*.\n" \
+                "Kurallarınıza Bağlanan Bir Buton Oluşturmak İçin Bunu Kullanın: `[Kurallar](buttonurl://t.me/{}?start=group_id)`. " \
+                "´Group_id´ Yerine /id Aracılığıyla Elde Edilebilen Grubunuzun Kimliğini Değiştirmeniz Yeterlidir. " \
+                "Grup Kimliklerinden Önce Genellikle Bir ´-´ İşareti Bulunduğunu Unutmayın; Bu Gerekli, Bu Yüzden Lütfen Silme\n" \
+                "Eğlenceli Hissediyorsanız, Görüntüleri/Gifleri/Videoları/Sesli Mesajları Karşılama Mesajı Olarak Bile Ayarlayabilirsiniz. " \
+                "Medyayı Yanıtlayıp /setwelcome Yazmanız Yeterlidir.".format(dispatcher.bot.username)
 
 
 @run_async
@@ -495,25 +493,25 @@ def __migrate__(old_chat_id, new_chat_id):
 def __chat_settings__(chat_id, user_id):
     welcome_pref, _, _ = sql.get_welc_pref(chat_id)
     goodbye_pref, _, _ = sql.get_gdbye_pref(chat_id)
-    return "This chat has it's welcome preference set to `{}`.\n" \
-           "It's goodbye preference is `{}`.".format(welcome_pref, goodbye_pref)
+    return "Bu Sohbetin Hoş Geldiniz Tercihi Şu Şekilde Ayarlanmış: `{}`.\n" \
+           "Veda Tercihi `{}`.".format(welcome_pref, goodbye_pref)
 
 
 __help__ = """
 {}
 
 *Admin only:*
- - /welcome <on/off>: enable/disable welcome messages.
- - /welcome: shows current welcome settings.
- - /welcome noformat: shows current welcome settings, without the formatting - useful to recycle your welcome messages!
- - /goodbye -> same usage and args as /welcome.
- - /setwelcome <sometext>: set a custom welcome message. If used replying to media, uses that media.
- - /setgoodbye <sometext>: set a custom goodbye message. If used replying to media, uses that media.
- - /resetwelcome: reset to the default welcome message.
- - /resetgoodbye: reset to the default goodbye message.
- - /cleanwelcome <on/off>: On new member, try to delete the previous welcome message to avoid spamming the chat.
- - /clearjoin <on/off>: when someone joins, try to delete the *user* joined the group message.
- - /welcomehelp: view more formatting information for custom welcome/goodbye messages.
+ - /welcome <on/off>: Hoş geldin Mesajı Aktif/Kapalı.
+ - /welcome: Mevcut Hoş geldin Mesajını Gösterir!
+ - /welcome noformat: Biçimlendirme Olmadan Geçerli Hoş Geldiniz Ayarlarını Gösterir - Hoş Geldiniz Mesajlarınızı Geri Dönüştürmek İçin Kullanışlıdır!
+ - /goodbye -> Kullanımı /welcome Gibidir.
+ - /setwelcome <sometext>: Özel Bir Karşılama Mesajı Ayarlayın. Medyayı Yanıtlarken Kullanılırsa, O Medyayı Kullanır.
+ - /setgoodbye <sometext>: Özel Bir Veda Ayarlayın. Medyayı Yanıtlarken Kullanılırsa, O Medyayı Kullanır.
+ - /resetwelcome: Hoş Geldin Mesajını Eski Ayarlarına Çevirir.
+ - /resetgoodbye: Veda Mesajını Eski Ayarlarına Çevirir.
+ - /cleanwelcome <on/off>: Yeni Üyede, Sohbete Spam Göndermekten Kaçınmak İçin Önceki Hoş Geldiniz Mesajını Silmeyi Deneyin.
+ - /clearjoin <on/off>: Birisi Katıldığında, Grup Mesajına Katılan *kullanıcıyı* Silmeyi Deneyin.
+ - /welcomehelp: Özel Karşılama/Veda Mesajları İçin Daha Fazla Biçimlendirme Bilgisi Görüntüleyin.
 
 """.format(WELC_HELP_TXT)
 
