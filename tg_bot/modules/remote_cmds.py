@@ -14,73 +14,73 @@ from tg_bot.modules.helper_funcs.string_handling import extract_time
 from tg_bot.modules.helper_funcs.filters import CustomFilters
 
 RBAN_ERRORS = {
-    "User is an administrator of the chat",
-    "Chat not found",
-    "Not enough rights to restrict/unrestrict chat member",
+    "Bir Yetkiliyi Banlayamam",
+    "Sohbet Mevcut Değil",
+    "Üyeyi Kısıtlamak/Kısıtlama Kaldırmak İçin Yeterli Yetkim Yok.",
     "User_not_participant",
     "Peer_id_invalid",
-    "Group chat was deactivated",
-    "Need to be inviter of a user to kick it from a basic group",
+    "Sohbet Devre Dışı.",
+    "Basit Bir Gruptan Atmak İçin Bir Kullanıcının Davetlisi Olması Gerekir",
     "Chat_admin_required",
-    "Only the creator of a basic group can kick group administrators",
+    "Yalnızca Bir Grubu Oluşturan Kişi Grup Yöneticilerini Atabilir!",
     "Channel_private",
-    "Not in the chat"
+    "Bir Sohbet Değil!"
 }
 
 RUNBAN_ERRORS = {
-    "User is an administrator of the chat",
-    "Chat not found",
-    "Not enough rights to restrict/unrestrict chat member",
+    "Bir Yetkiliyi Banlayamam",
+    "Sohbet Mevcut Değil",
+    "Üyeyi Kısıtlamak/Kısıtlama Kaldırmak İçin Yeterli Yetkim Yok.",
     "User_not_participant",
     "Peer_id_invalid",
-    "Group chat was deactivated",
-    "Need to be inviter of a user to kick it from a basic group",
+    "Sohbet Devre Dışı.",
+    "Basit Bir Gruptan Atmak İçin Bir Kullanıcının Davetlisi Olması Gerekir",
     "Chat_admin_required",
-    "Only the creator of a basic group can kick group administrators",
+    "Yalnızca Bir Grubu Oluşturan Kişi Grup Yöneticilerini Atabilir!",
     "Channel_private",
-    "Not in the chat"
+    "Bir Sohbet Değil!"
 }
 
 RKICK_ERRORS = {
-    "User is an administrator of the chat",
-    "Chat not found",
-    "Not enough rights to restrict/unrestrict chat member",
+    "Bir Yetkiliyi Banlayamam",
+    "Sohbet Mevcut Değil",
+    "Üyeyi Kısıtlamak/Kısıtlama Kaldırmak İçin Yeterli Yetkim Yok.",
     "User_not_participant",
     "Peer_id_invalid",
-    "Group chat was deactivated",
-    "Need to be inviter of a user to kick it from a basic group",
+    "Sohbet Devre Dışı.",
+    "Basit Bir Gruptan Atmak İçin Bir Kullanıcının Davetlisi Olması Gerekir",
     "Chat_admin_required",
-    "Only the creator of a basic group can kick group administrators",
+    "Yalnızca Bir Grubu Oluşturan Kişi Grup Yöneticilerini Atabilir!",
     "Channel_private",
-    "Not in the chat"
+    "Bir Sohbet Değil!"
 }
 
 RMUTE_ERRORS = {
-    "User is an administrator of the chat",
-    "Chat not found",
-    "Not enough rights to restrict/unrestrict chat member",
+    "Bir Yetkiliyi Banlayamam",
+    "Sohbet Mevcut Değil",
+    "Üyeyi Kısıtlamak/Kısıtlama Kaldırmak İçin Yeterli Yetkim Yok.",
     "User_not_participant",
     "Peer_id_invalid",
-    "Group chat was deactivated",
-    "Need to be inviter of a user to kick it from a basic group",
+    "Sohbet Devre Dışı.",
+    "Basit Bir Gruptan Atmak İçin Bir Kullanıcının Davetlisi Olması Gerekir",
     "Chat_admin_required",
-    "Only the creator of a basic group can kick group administrators",
+    "Yalnızca Bir Grubu Oluşturan Kişi Grup Yöneticilerini Atabilir!",
     "Channel_private",
-    "Not in the chat"
+    "Bir Sohbet Değil!"
 }
 
 RUNMUTE_ERRORS = {
-    "User is an administrator of the chat",
-    "Chat not found",
-    "Not enough rights to restrict/unrestrict chat member",
+    "Bir Yetkiliyi Banlayamam",
+    "Sohbet Mevcut Değil",
+    "Üyeyi Kısıtlamak/Kısıtlama Kaldırmak İçin Yeterli Yetkim Yok.",
     "User_not_participant",
     "Peer_id_invalid",
-    "Group chat was deactivated",
-    "Need to be inviter of a user to kick it from a basic group",
+    "Sohbet Devre Dışı.",
+    "Basit Bir Gruptan Atmak İçin Bir Kullanıcının Davetlisi Olması Gerekir",
     "Chat_admin_required",
-    "Only the creator of a basic group can kick group administrators",
+    "Yalnızca Bir Grubu Oluşturan Kişi Grup Yöneticilerini Atabilir!",
     "Channel_private",
-    "Not in the chat"
+    "Bir Sohbet Değil!"
 }
 
 @run_async
