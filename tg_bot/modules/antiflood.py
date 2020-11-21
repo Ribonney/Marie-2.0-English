@@ -39,7 +39,7 @@ def check_flood(bot: Bot, update: Update) -> str:
 
         return "<b>{}:</b>" \
                "\n#BAN" \
-               "\n<b>Kullanıldı:</b> {}" \
+               "\n<b>Kullanıcı:</b> {}" \
                "\nGrupta Flood.".format(html.escape(chat.title),
                                              mention_html(user.id, user.first_name))
 
