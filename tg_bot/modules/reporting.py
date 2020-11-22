@@ -74,7 +74,7 @@ def report(bot: Bot, update: Update) -> str:
                                                                                    user.first_name),
                                                                       user.id)
             link = "\n<b>Mesaj Linki:</b> " \
-                   "<a href=\"http://telegram.me/{}/{}\">click here</a>".format(chat.username, message.message_id)
+                   "<a href=\"http://telegram.me/{}/{}\">Mesaja Git!</a>".format(chat.username, message.message_id)
 
             should_forward = False
 
