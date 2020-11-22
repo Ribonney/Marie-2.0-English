@@ -72,7 +72,9 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("Gerçekten Sahibimi Banlamamı Mı İstiyorsun ??")
+        keyboard = []
+        reply = """Kusura Bakma, {} Benim Yetkilim Onu Banlayamam!""".format(mention_html(user_id, member.user.first_name))
+        message.reply_text(reply, reply_markup=keyboard, parse_mode=ParseMode.HTML)
         return ""
 
     if user_id == bot.id:
