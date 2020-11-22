@@ -72,7 +72,7 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("Gerçekten Sahibimi Banlamamı Mı İstiyorsun ??...")
+        message.reply_text("Gerçekten Sahibimi Banlamamı Mı İstiyorsun ??")
         return ""
 
     if user_id == bot.id:
@@ -213,7 +213,7 @@ def kick(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_ban_protected(chat, user_id):
-        message.reply_text("Yöneticileri Yasaklamayı Bende Çok İsterdim...")
+        message.reply_text("Gerçekten Sahibimi Banlamamı Mı İstiyorsun ??")
         return ""
 
     if user_id == bot.id:
@@ -247,12 +247,12 @@ def kick(bot: Bot, update: Update, args: List[str]) -> str:
 def kickme(bot: Bot, update: Update):
     user_id = update.effective_message.from_user.id
     if is_user_admin(update.effective_chat, user_id):
-        update.effective_message.reply_text("I wish I could... but you're an admin.")
+        update.effective_message.reply_text("nE Adminler İstifa Edemez KARDEŞİM KENDİNE GEL!!")
         return
 
     res = update.effective_chat.unban_member(user_id)  # unban on current user = kick
     if res:
-        update.effective_message.reply_text("Problem Yok")
+        update.effective_message.reply_text("Gerçekten Bunu Yapmak Mı İstedin\nPEKİ O ZAMAN GÖRÜŞÜRÜZ!")
     else:
         update.effective_message.reply_text("Huh? Bunu Yapamam :/")
 
@@ -310,55 +310,56 @@ def rban(bot: Bot, update: Update, args: List[str]):
     message = update.effective_message
 
     if not args:
-        message.reply_text("You don't seem to be referring to a chat/user.")
+        message.reply_text("Görünüşe göre bir sohbetten/kullanıcıdan bahsetmiyorsunuz.")
         return
 
     user_id, chat_id = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("Bu Bir Geçerli Kullanıcı Değil!")
         return
     elif not chat_id:
-        message.reply_text("You don't seem to be referring to a chat.")
+        message.reply_text("Bu Bir Geçerli Sohbet Değil!")
         return
 
     try:
         chat = bot.get_chat(chat_id.split()[0])
     except BadRequest as excp:
         if excp.message == "Chat not found":
-            message.reply_text("Chat not found! Make sure you entered a valid chat ID and I'm part of that chat.")
+            message.reply_text("Sohbet Bulunamadı! Geçerli Bir Sohbet Kimliği Girdiğinizden Emin Olun Veya Beni Oraya Ekleyin")
             return
         else:
             raise
 
     if chat.type == 'private':
-        message.reply_text("I'm sorry, but that's a private chat!")
+        message.reply_text("Üzgünüm ama bu özel bir sohbet!")
         return
 
     if not is_bot_admin(chat, bot.id) or not chat.get_member(bot.id).can_restrict_members:
-        message.reply_text("I can't restrict people there! Make sure I'm admin and can ban users.")
+        message.reply_text("Oradaki insanları kısıtlayamam! Yönetici olduğumdan ve kullanıcıları yasaklayabileceğimden emin olun.")
         return
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user")
+            message.reply_text("Kullanıcıyı Bulamadım!")
             return
         else:
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("I really wish I could ban admins...")
+        message.reply_text("Gerçekten Sahibimi Banlayacağımı mı düşündün?")
         return
 
     if user_id == bot.id:
-        message.reply_text("I'm not gonna BAN myself, are you crazy?")
+        message.reply_text("Hadi Ama Dostum Kendimi Neden Banlayayım?")
         return
 
     try:
         chat.kick_member(user_id)
-        message.reply_text("Banned!")
+        text = "[Kullanıcı](tg://user?id={user_id})
+        message.reply_text("Kullanıcı Yasaklandı")
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
