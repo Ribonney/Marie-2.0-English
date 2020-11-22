@@ -62,9 +62,10 @@ def report(bot: Bot, update: Update) -> str:
         admin_list = chat.get_administrators()
 
         if chat.username and chat.type == Chat.SUPERGROUP:
+            message.reply_text("Raporunuz Alındı!")
             msg = "<b>{}:</b>" \
-                  "\n<b>Reported user:</b> {} (<code>{}</code>)" \
-                  "\n<b>Reported by:</b> {} (<code>{}</code>)".format(html.escape(chat.title),
+                  "\n<b>Raporlanan Kullanıcı:</b> {} (<code>{}</code>)" \
+                  "\n<b>Raporlayan Kullanıcı:</b> {} (<code>{}</code>)".format(html.escape(chat.title),
                                                                       mention_html(
                                                                           reported_user.id,
                                                                           reported_user.first_name),
@@ -72,7 +73,7 @@ def report(bot: Bot, update: Update) -> str:
                                                                       mention_html(user.id,
                                                                                    user.first_name),
                                                                       user.id)
-            link = "\n<b>Link:</b> " \
+            link = "\n<b>Mesaj Linki:</b> " \
                    "<a href=\"http://telegram.me/{}/{}\">click here</a>".format(chat.username, message.message_id)
 
             should_forward = False
