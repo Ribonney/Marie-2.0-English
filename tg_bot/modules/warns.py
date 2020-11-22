@@ -66,7 +66,7 @@ def warn(user: User, chat: Chat, reason: str, message: Message, warner: User = N
         keyboard = InlineKeyboardMarkup(
             [[InlineKeyboardButton("Uyarı Sil", callback_data="rm_warn({})".format(user.id))]])
 
-        reply = "{} Uyarı Silindi Son Durum {}/{}".format(mention_html(user.id, user.first_name), num_warns,
+        reply = "{} Uyarıldı! Son Durum {}/{}".format(mention_html(user.id, user.first_name), num_warns,
                                                              limit)
         if reason:
             reply += "\nSon Uyarı Sebebi:\n{}".format(html.escape(reason))
@@ -399,7 +399,7 @@ __help__ = """
 *Sadece Yetkililer:*
  - /warn <userhandle>: Bir Kullanıcıyı Uyar. 3 Uyarıdan Sonra Kullanıcı Gruptan Banlanacaktır. Yanıt Olarak Da Kullanılabilir.
  - /resetwarn <userhandle>: Kullanıcının Uyarılarını Siler. Yanıt Olarak Da Kullanılabilir.
- - /addwarn <keyword> <reply message>: Belirli Bir Anahtar Kelime İçin Bir Uyarı Filtresi Ayarlayın. örneğin: /addwarn "çok kızgın" Bu kızgın bir kullanıcı. \
+ - /addwarn <keyword> <reply message>: Belirli Bir Anahtar Kelime İçin Bir Uyarı Filtresi Ayarlayın. örneğin: /addwarn "çok kızgın" Bu kızgın bir kullanıcı.
  - /nowarn <keyword>: Uyarı Filtresini Durdur
  - /warnlimit <num>: Uyarı Limiti Ekle
  - /strongwarn <on/yes/off/no>: Açık Olarak Ayarlanırsa, Uyarı Sınırının Aşılması Ban İle Sonuçlanacaktır. Aksi Takdirde, Sadece Gruptan Atacak.
