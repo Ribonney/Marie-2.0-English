@@ -358,11 +358,11 @@ def rban(bot: Bot, update: Update, args: List[str]):
 
     try:
         chat.kick_member(user_id)
-        message.reply_text("{} Yasaklandı!".format(user_id)
+        message.reply_text("{} Yasaklandı!".format(user_id))
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text('Yasaklandı!', quote=False)
+            message.reply_text('{} Yasaklandı!'.format(user_id), quote=False)
         elif excp.message in RBAN_ERRORS:
             message.reply_text(excp.message)
         else:
