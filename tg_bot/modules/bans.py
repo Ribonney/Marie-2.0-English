@@ -358,8 +358,9 @@ def rban(bot: Bot, update: Update, args: List[str]):
 
     try:
         chat.kick_member(user_id)
-        reply = """{} Yasaklandı!""".format(mention_html(user_id, member.user.first_name)
-        message.reply_text(reply, parse_mode=ParseMode.HTML)
+        keyboard = []
+        reply = """{} Yasaklandı!""".format(mention_html(user_id, member.user.first_name))
+        message.reply_text(reply, reply_markup=keyboard, parse_mode=ParseMode.HTML)
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
