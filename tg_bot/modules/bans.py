@@ -362,7 +362,7 @@ def rban(bot: Bot, update: Update, args: List[str]):
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text('{} Yasaklandı!'.format(user_id), quote=False)
+            message.reply_text('Yasaklandı!', quote=False)
         elif excp.message in RBAN_ERRORS:
             message.reply_text(excp.message)
         else:
