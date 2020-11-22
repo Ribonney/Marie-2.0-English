@@ -201,16 +201,16 @@ def get_id(bot: Bot, update: Update, args: List[str]):
                 parse_mode=ParseMode.MARKDOWN)
         else:
             user = bot.get_chat(user_id)
-            update.effective_message.reply_text("{}'s id is `{}`.".format(escape_markdown(user.first_name), user.id),
+            update.effective_message.reply_text("*Kullanıcı*: {}\n*ID*: `{}`.".format(escape_markdown(user.first_name), user.id),
                                                 parse_mode=ParseMode.MARKDOWN)
     else:
         chat = update.effective_chat  # type: Optional[Chat]
         if chat.type == "private":
-            update.effective_message.reply_text("Your id is `{}`.".format(chat.id),
+            update.effective_message.reply_text("*ID*: `{}`.".format(chat.id),
                                                 parse_mode=ParseMode.MARKDOWN)
 
         else:
-            update.effective_message.reply_text("This group's id is `{}`.".format(chat.id),
+            update.effective_message.reply_text("*Chat ID*: `{}`.".format(chat.id),
                                                 parse_mode=ParseMode.MARKDOWN)
 
 
