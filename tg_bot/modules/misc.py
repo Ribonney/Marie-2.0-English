@@ -234,32 +234,32 @@ def info(bot: Bot, update: Update, args: List[str]):
     else:
         return
 
-    text = "<b>User info</b>:" \
+    text = "<b>Kullanıcı Bilgisi</b>:" \
            "\nID: <code>{}</code>" \
-           "\nFirst Name: {}".format(user.id, html.escape(user.first_name))
+           "\nİsmi: {}".format(user.id, html.escape(user.first_name))
 
     if user.last_name:
-        text += "\nLast Name: {}".format(html.escape(user.last_name))
+        text += "\nSoy İsmi: {}".format(html.escape(user.last_name))
 
     if user.username:
-        text += "\nUsername: @{}".format(html.escape(user.username))
+        text += "\nKullanıcı Adı: @{}".format(html.escape(user.username))
 
-    text += "\nPermanent user link: {}".format(mention_html(user.id, "link"))
+    text += "\nKullanıcı Bağlantı Linki: {}".format(mention_html(user.id, "link"))
 
     if user.id == OWNER_ID:
-        text += "\n\nThis person is my owner - I would never do anything against them!"
+        text += "\n\nBu Kişi Benim Sahibim -Ona Karşı Asla Kötü Bir Şey Yapmam!"
     else:
         if user.id in SUDO_USERS:
-            text += "\nThis person is one of my sudo users! " \
-                    "Nearly as powerful as my owner - so watch it."
+            text += "\nBu Kişi Sudo Kullanıcılarımdan Biri! " \
+                    "Neredeyse Sahibim Kadar Güçlü -O Yüzden İzleyin."
         else:
             if user.id in SUPPORT_USERS:
-                text += "\nThis person is one of my support users! " \
-                        "Not quite a sudo user, but can still gban you off the map."
+                text += "\nBu Kullanıcı Benim Destekçim " \
+                        "Tam Olarak Bir Sudo Kullanıcısı Değil, Ama Yine De Size Global Ban Atıp Uzaklaştırabilir."
 
             if user.id in WHITELIST_USERS:
-                text += "\nThis person has been whitelisted! " \
-                        "That means I'm not allowed to ban/kick them."
+                text += "\nBu Kullanıcı Beyaz Listede Bulunuyor! " \
+                        "Bu Onları Yasaklama İznim Olmadığı Anlamına Geliyor."
 
     for mod in USER_INFO:
         mod_info = mod.__user_info__(user.id).strip()
