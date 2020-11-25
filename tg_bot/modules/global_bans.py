@@ -91,7 +91,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
 
         return
 
-    message.reply_text("⚡️ *Kullanıcı Yasaklandı* ⚡️")
+    message.reply_text("⚡️ *Kullanıcı Yasaklandı* ⚡️", parse_mode=ParseMode.MARKDOWN)
 
     banner = update.effective_user  # type: Optional[User]
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS,
