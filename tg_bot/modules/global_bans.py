@@ -272,7 +272,7 @@ def gbanstat(bot: Bot, update: Update, args: List[str]):
 
 
 def __stats__():
-    return "{} gbanned users.".format(sql.num_gbanned_users())
+    return "Toplam {} Kullanıcı Global Olarak Yasaklandı.".format(sql.num_gbanned_users())
 
 
 def __user_info__(user_id):
