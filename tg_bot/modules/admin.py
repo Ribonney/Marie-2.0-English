@@ -54,13 +54,12 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
                           #can_promote_members=bot_member.can_promote_members)
 
     message.reply_text("Yetkilendirildi🧡")
-    #return " "
-           #"<b>{}:</b>" \
-           #"\n#Yetkilendirildi" \
-           #"\n<b>Admin:</b> {}" \
-           #"\n<b>Kullanıcı:</b> {}".format(html.escape(chat.title),
-                                      #mention_html(user.id, user.first_name),
-                                      #mention_html(user_member.user.id, user_member.user.first_name))
+    return "<b>{}:</b>"\
+           "\n#Yetkilendirildi"\
+           "\n<b>Admin:</b> {}"\
+           "\n<b>Kullanıcı:</b> {}".format(html.escape(chat.title),
+                                      mention_html(user.id, user.first_name),
+                                      mention_html(user_member.user.id, user_member.user.first_name))
 
 
 @run_async
