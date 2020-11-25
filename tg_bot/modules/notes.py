@@ -271,7 +271,7 @@ def __import_data__(chat_id, data):
 
 
 def __stats__():
-    return "{} notes, across {} chats.".format(sql.num_notes(), sql.num_chats())
+    return "{} Sohbette Toplam {} Not Bulunuyor.".format(sql.num_chats(), sql.num_notes())
 
 
 def __migrate__(old_chat_id, new_chat_id):
