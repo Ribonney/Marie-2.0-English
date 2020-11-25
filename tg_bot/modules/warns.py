@@ -370,7 +370,7 @@ def set_warn_strength(bot: Bot, update: Update, args: List[str]):
 
 
 def __stats__():
-    return "{} Sohbette Toplam {} Uyarı Bulunuyor..\n" \
+    return "{} Sohbette Toplam {} Uyarı Bulunuyor.\n" \
            "{} Sohbette Toplam {} Uyarı Filtresi Bulunuyor.".format(sql.num_warn_chats(), sql.num_warns(),
                                                       sql.num_warn_filter_chats(), sql.num_warn_filters())
 
