@@ -140,8 +140,8 @@ def __chat_settings__(chat_id, user_id):
 
 
 def __stats__():
-    return "{} blacklist triggers, across {} chats.".format(sql.num_blacklist_filters(),
-                                                            sql.num_blacklist_filter_chats())
+    return "{} Sohbette Toplam {} Blacklist Bulunuyor.".format(sql.num_blacklist_filter_chats(),
+                                                            sql.num_blacklist_filters())
 
 
 __mod_name__ = "Word Blacklists"
