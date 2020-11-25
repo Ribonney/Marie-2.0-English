@@ -40,7 +40,7 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
 
         elif member.can_send_messages is None or member.can_send_messages:
             bot.restrict_chat_member(chat.id, user_id, can_send_messages=False)
-            message.reply_text("👍🏻 muted! 🤐")
+            message.reply_text("👍🏻 Sen Sus Lan Köylü! 🤐")
             return "<b>{}:</b>" \
                    "\n#MUTE" \
                    "\n<b>Admin:</b> {}" \
@@ -90,8 +90,8 @@ def unmute(bot: Bot, update: Update, args: List[str]) -> str:
                                               mention_html(user.id, user.first_name),
                                               mention_html(member.user.id, member.user.first_name))
     else:
-        message.reply_text("This user isn't even in the chat, unmuting them won't make them talk more than they "
-                           "already do!")
+        message.reply_text("Bu Kullanıcı Zaten Sohbette Değil!")
+
 
     return ""
 
