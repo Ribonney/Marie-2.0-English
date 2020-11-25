@@ -54,7 +54,7 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
                           #can_promote_members=bot_member.can_promote_members)
 
     message.reply_text("Yetkilendirildi🧡")
-    return ""
+    return " "
            #"<b>{}:</b>" \
            #"\n#Yetkilendirildi" \
            #"\n<b>Admin:</b> {}" \
