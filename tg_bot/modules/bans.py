@@ -100,13 +100,13 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text('Banned!', quote=False)
+            message.reply_text('Yasaklandı!!', quote=False)
             return log
         else:
             LOGGER.warning(update)
             LOGGER.exception("ERROR banning user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
-            message.reply_text("Kahretsin, O Kullanıcıyı Yasaklayamam.")
+            message.reply_text("Görüşürüzz!")
 
     return ""
 
@@ -373,7 +373,7 @@ def rban(bot: Bot, update: Update, args: List[str]):
             LOGGER.warning(update)
             LOGGER.exception("ERROR banning user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
-            message.reply_text("Well damn, I can't ban that user.")
+            message.reply_text("Kahretsin onu yasaklayamıyorum")
 
 @run_async
 @bot_admin
