@@ -48,15 +48,15 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
                           can_post_messages=bot_member.can_post_messages,
                           can_edit_messages=bot_member.can_edit_messages,
                           can_delete_messages=bot_member.can_delete_messages,
-                          can_invite_users=bot_member.can_invite_users,
+                          #can_invite_users=bot_member.can_invite_users,
                           can_restrict_members=bot_member.can_restrict_members,
                           can_pin_messages=bot_member.can_pin_messages,
-                          #can_promote_members=bot_member.can_promote_members)
+                          can_promote_members=bot_member.can_promote_members)
 
     message.reply_text("Yetkilendirildi🧡")
-    return "<b>{}:</b>"\
-           "\n#Yetkilendirildi"\
-           "\n<b>Admin:</b> {}"\
+    return "<b>{}:</b>" \
+           "\n#Yetkilendirildi" \
+           "\n<b>Admin:</b> {}" \
            "\n<b>Kullanıcı:</b> {}".format(html.escape(chat.title),
                                       mention_html(user.id, user.first_name),
                                       mention_html(user_member.user.id, user_member.user.first_name))
