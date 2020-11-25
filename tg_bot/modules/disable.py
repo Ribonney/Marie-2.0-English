@@ -135,7 +135,7 @@ if is_module_loaded(FILENAME):
 
 
     def __stats__():
-        return "{} Sohbette Toplam {} Komut Devre dışı Bırakıldı.".format(sql.num_chats(), sql.num_disabled())
+        return "{} Sohbette Toplam {} Komut Devre Dışı Bırakıldı.".format(sql.num_chats(), sql.num_disabled())
 
 
     def __migrate__(old_chat_id, new_chat_id):
