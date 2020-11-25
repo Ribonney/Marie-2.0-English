@@ -268,7 +268,7 @@ def __stats__():
 def __user_info__(user_id):
     is_gmuted = sql.is_user_gmuted(user_id)
 
-    text = "Global Mute: <b>{}</b>"
+    text = "Global Susturma: <b>{}</b>"
     if is_gmuted:
         text = text.format("Var")
         user = sql.get_gmuted_user(user_id)
