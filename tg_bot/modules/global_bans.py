@@ -299,11 +299,14 @@ def __chat_settings__(chat_id, user_id):
 
 __help__ = """
 *Admin only:*
- - /gbanstat <on/off/yes/no>: Will disable the effect of global bans on your group, or return your current settings.
+ - /gbanstat <on/off/yes/no>: Global yasaklamaların grubunuz üzerindeki etkisini devre dışı bırakır veya mevcut ayarlarınıza döner..
 
-Gbans, also known as global bans, are used by the bot owners to ban spammers across all groups. This helps protect \
-you and your groups by removing spam flooders as quickly as possible. They can be disabled for you group by calling \
-/gbanstat
+Küresel Yasaklar Sizin Grubunuzu Korumanıza Yardımcı Olur. \
+Bot Yetkilileri Tarafından Atılan Küresel Yasaklamalara Tabii Tutulan \
+Kişi Sizin Grubunuzdan Da Yasaklanacaktır. Bu Sizin Gruplarınızı \
+Spammerlardan Flooderlardan Korumanıza Yardımcı Olur. \
+
+İhbarda Bulunmak İçin Kanıtlarınız İle Beraber @ixelizm Mesaj Atınız..
 """
 
 __mod_name__ = "Global Bans"
