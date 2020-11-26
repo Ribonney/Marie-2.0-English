@@ -374,7 +374,7 @@ def markdown_help(bot: Bot, update: Update):
 
 @run_async
 def stats(bot: Bot, update: Update):
-    update.effective_message.reply_text("Current stats:\n" + "\n".join([mod.__stats__() for mod in STATS]))
+    update.effective_message.reply_text("Mevcut İstatistikler:\n" + "\n".join([mod.__stats__() for mod in STATS]))
 
 @run_async
 def stickerid(bot: Bot, update: Update):
